@@ -1,4 +1,4 @@
-package com.example.demo;
+package com.example.demo.servicio;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,6 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Service;
+import com.example.demo.modelo.Libro;
 
 @Service
 public class LibroService {

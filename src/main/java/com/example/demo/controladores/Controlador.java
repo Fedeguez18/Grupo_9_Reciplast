@@ -9,8 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.Libro;
-import com.example.demo.LibroService;
+import com.example.demo.modelo.Libro;
+import com.example.demo.servicio.LibroService;
 
 @RestController
 public class Controlador {
