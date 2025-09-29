@@ -1,4 +1,4 @@
-package com.example.demo.servicio;
+package com.example.demo.servicio.Tp_Spring;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.springframework.stereotype.Service;
-import com.example.demo.modelo.Pelicula;
+import com.example.demo.modelo.Tp_Spring.Pelicula;
 
 @Service
 public class PeliculaService {

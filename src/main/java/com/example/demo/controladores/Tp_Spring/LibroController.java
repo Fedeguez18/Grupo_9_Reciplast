@@ -1,4 +1,4 @@
-package com.example.demo.controladores;
+package com.example.demo.controladores.Tp_Spring;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.springframework.http.HttpStatus;
 //import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.modelo.Libro;
-import com.example.demo.servicio.LibroService;
+import com.example.demo.modelo.Tp_Spring.Libro;
+import com.example.demo.servicio.Tp_Spring.LibroService;
 
 @RestController
 @RequestMapping("/libros")

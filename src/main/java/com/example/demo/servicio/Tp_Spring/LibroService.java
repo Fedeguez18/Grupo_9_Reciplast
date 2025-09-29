@@ -1,4 +1,4 @@
-package com.example.demo.servicio;
+package com.example.demo.servicio.Tp_Spring;
 
 import java.util.Collections;
 import java.util.List;
@@ -8,7 +8,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Service;
-import com.example.demo.modelo.Libro;
+import com.example.demo.modelo.Tp_Spring.Libro;
 
 @Service
 public class LibroService {

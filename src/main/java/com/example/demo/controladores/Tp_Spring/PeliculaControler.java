@@ -1,4 +1,4 @@
-package com.example.demo.controladores;
+package com.example.demo.controladores.Tp_Spring;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.modelo.Pelicula;
-import com.example.demo.servicio.PeliculaService;
+import com.example.demo.modelo.Tp_Spring.Pelicula;
+import com.example.demo.servicio.Tp_Spring.PeliculaService;
 
 @RestController
 @RequestMapping("/peliculas")
