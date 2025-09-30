@@ -3,7 +3,7 @@ package com.example.demo.dao;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 import org.springframework.stereotype.Repository;
-
+@Repository
 public class TestR {
         private final Sql2o sql2o;
 
