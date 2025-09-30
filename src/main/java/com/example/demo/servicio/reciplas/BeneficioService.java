@@ -18,7 +18,13 @@ public class BeneficioService {
     }
 
     public List<Beneficio> consultarBeneficio(int idUser) {
+        System.out.println("=== Consultando beneficios para usuario: " + idUser + " ===");
         int puntos = userDaoSQL.consultarPuntos(idUser);
-        return beneDaoSQL.consultarBeneficios(puntos);
+        System.out.println("Puntos del usuario " + idUser + ": " + puntos);
+        
+        List<Beneficio> beneficios = beneDaoSQL.consultarBeneficios(puntos);
+        System.out.println("Beneficios encontrados: " + beneficios.size());
+        
+        return beneficios;
     }
 }
