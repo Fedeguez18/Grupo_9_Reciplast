@@ -9,9 +9,9 @@ public class DBConfig {
     @Bean
     public Sql2o sql2o() {
         return new Sql2o(
-            "jdbc:mysql://localhost:3306/tu_base?useSSL=false&serverTimezone=UTC",
-            "tu_usuario",
-            "tu_contraseña"
+            "jdbc:mysql://localhost:3306/reciplas?useSSL=false&serverTimezone=UTC",
+            "root",
+            ""
         );
     }
 }
