@@ -7,17 +7,12 @@ import org.sql2o.Sql2o;
 public class UsuarioDaoSQL2o implements IUsuarioDao {
     private final Sql2o sql2o;
 
-    // Constructor por inyección de dependencias
+    
     public UsuarioDaoSQL2o(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 
-    /**
-     * Consulta la cantidad de puntos de un usuario por su id (DNI).
-     *
-     * @param idUser identificador del usuario (DNI en la tabla Usuario).
-     * @return puntos acumulados del usuario. Si no existe, retorna 0.
-     */
+    
     @Override
     public int consultarPuntos(int idUser) {
         String sql = "SELECT Cant_ptos FROM Usuario WHERE DNI = :id";

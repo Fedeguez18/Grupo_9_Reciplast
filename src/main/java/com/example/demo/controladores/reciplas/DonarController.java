@@ -3,12 +3,8 @@ package com.example.demo.controladores.reciplas;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.modelo.resiplas.DonarPlastico;
@@ -16,7 +12,7 @@ import com.example.demo.servicio.reciplas.DonarService;
 
 @RestController
 public class DonarController {
-    private static final Logger logger = LoggerFactory.getLogger(DonarController.class);
+   
     private final DonarService donarService;
 
     public DonarController(DonarService donarService){
@@ -24,8 +20,7 @@ public class DonarController {
     }
     
     @PostMapping("/donar")
-    //aca
-    @ResponseStatus(HttpStatus.CREATED)
+    //@ResponseStatus(HttpStatus.CREATED)
     public Map<String, Object> guardarDonacion(@RequestBody DonarPlastico donacion){
         
         donarService.guardarDonacion(donacion);
@@ -38,7 +33,7 @@ public class DonarController {
         
         return response;
     }
-    //hasta aca
+   
 }
 
 /*
@@ -46,6 +41,8 @@ public class DonarController {
   "idUsuario": 1,
   "idPlastico": 10,
   "cantidadADonar": 10,
+  "fechaHoraDisp": 2025-10-03,
+  "buscar": 1,
   "unidad": "kg"
 }
  */

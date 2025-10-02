@@ -1,13 +1,15 @@
 package com.example.demo.modelo.resiplas;
 
+import java.util.Date;
+
 
 public class DonarPlastico {
 
     private int idDonacion;
     private int idUsuario;
     private int cantidadADonar;
-    //private Date fechaHoraDisp;
-    //private boolean buscarDonacion;
+    private Date fechaHoraDisp;
+    private boolean buscar;
     private int idPlastico;
     private String unidad;
     
@@ -32,6 +34,22 @@ public class DonarPlastico {
     }
     public void setUnidad(String unidad){
         this.unidad= unidad;
+    }
+
+    public Date getFechaHoraDisp(){
+        return fechaHoraDisp;
+    }
+
+    public void setFechaHoraDisp(Date fechaHoraDisp){
+        this.fechaHoraDisp = fechaHoraDisp;
+    }
+
+    public boolean getBuscar(){
+        return buscar;
+    }
+
+    public void setBuscar(boolean buscar){
+        this.buscar = buscar;
     }
 
 }
