@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import com.example.demo.dao.BeneficioDaoSQL2o;
 import com.example.demo.dao.UsuarioDaoSQL2o;
 import com.example.demo.modelo.resiplas.Beneficio;
+
 @Service
 public class BeneficioService {
     private final UsuarioDaoSQL2o userDaoSQL;

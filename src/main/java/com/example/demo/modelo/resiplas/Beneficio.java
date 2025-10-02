@@ -13,11 +13,11 @@ public class Beneficio {
     private boolean Activo;
     private String Descripcion;
 
-    // Constructor vacío (REQUERIDO por Sql2o)
+    
     public Beneficio() {
     }
 
-    // Constructor con parámetros
+    
     public Beneficio(int id, String Nombre_benef, String tipo, String categoria, 
                     int puntosReq, Date fechaVigencia, boolean activo, String descripcion) {
         this.idBeneficio = id;

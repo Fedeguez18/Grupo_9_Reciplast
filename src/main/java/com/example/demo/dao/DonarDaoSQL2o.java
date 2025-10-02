@@ -16,20 +16,22 @@ public class DonarDaoSQL2o implements IDonacionDao {
 
     @Override
     public void guardarDonacion(DonarPlastico donacion){
-        String sql = "INSERT INTO donacion (Usuario_DNI, Plastico_idPlastico, Cant_plastico, Unidad) " +
-                    "VALUES (:Usuario_DNI, :Plastico_idPlastico, :Cant_plastico, :Unidad)";
+        String sql = "INSERT INTO donacion (Usuario_DNI, Plastico_idPlastico, Cant_plastico, Unidad, buscar, fechaHoraDisp) " +
+                    "VALUES (:Usuario_DNI, :Plastico_idPlastico, :Cant_plastico, :Unidad, :buscar, :fechaHoraDisp)";
 
         try (Connection con = sql2o.open()){
-            // modificacion: Cambiar de int a Number para manejar BigInteger
+            
             Number key = (Number) con.createQuery(sql, true)
+            
                 .addParameter("Usuario_DNI", donacion.getIdUsuario())
                 .addParameter("Plastico_idPlastico", donacion.getidPlastico())
                 .addParameter("Cant_plastico", donacion.getCantidadADonar())
                 .addParameter("Unidad", donacion.getUnidad())
+                .addParameter("buscar", donacion.getBuscar())
+                .addParameter("fechaHoraDisp", donacion.getFechaHoraDisp ())
                 .executeUpdate()
                 .getKey();
             
-            // modificacion: Convertir Number a int de forma segura
             if (key != null) {
                 donacion.setIdDonacion(key.intValue());
                 System.out.println("Donación guardada exitosamente con ID: " + key.intValue());
