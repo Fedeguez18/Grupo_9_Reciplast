@@ -27,9 +27,6 @@ public class DonarController {
     //aca
     @ResponseStatus(HttpStatus.CREATED)
     public Map<String, Object> guardarDonacion(@RequestBody DonarPlastico donacion){
-        logger.info("Recibiendo donación: Usuario={}, Plástico={}, Cantidad={} {}", 
-                   donacion.getIdUsuario(), donacion.getidPlastico(), 
-                   donacion.getCantidadADonar(), donacion.getUnidad());
         
         donarService.guardarDonacion(donacion);
         
@@ -43,3 +40,12 @@ public class DonarController {
     }
     //hasta aca
 }
+
+/*
+ {
+  "idUsuario": 1,
+  "idPlastico": 10,
+  "cantidadADonar": 10,
+  "unidad": "kg"
+}
+ */

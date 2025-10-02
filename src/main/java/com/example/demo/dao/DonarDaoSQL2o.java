@@ -6,7 +6,7 @@ import org.sql2o.Sql2o;
 import com.example.demo.modelo.resiplas.DonarPlastico;
 
 @Repository
-public class DonarDaoSQL2o {
+public class DonarDaoSQL2o implements IDonacionDao {
     
     private final Sql2o sql2o;
 
@@ -14,6 +14,7 @@ public class DonarDaoSQL2o {
         this.sql2o = sql2o;
     }
 
+    @Override
     public void guardarDonacion(DonarPlastico donacion){
         String sql = "INSERT INTO donacion (Usuario_DNI, Plastico_idPlastico, Cant_plastico, Unidad) " +
                     "VALUES (:Usuario_DNI, :Plastico_idPlastico, :Cant_plastico, :Unidad)";

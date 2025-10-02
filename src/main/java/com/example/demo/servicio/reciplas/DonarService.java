@@ -15,7 +15,6 @@ public class DonarService {
     }
 
     public void guardarDonacion(DonarPlastico donacion){
-        System.out.println("holaaaaaaaaaaaaaaaaaa " + /*donacion.getUnidad()+ " " + donacion.getCantidadADonar() + " " +*/ donacion.getidPlastico() + " "+ donacion.getIdUsuario());
         donarSql2o.guardarDonacion(donacion);
     }
 }
