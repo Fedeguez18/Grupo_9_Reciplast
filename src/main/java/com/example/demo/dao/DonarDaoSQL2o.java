@@ -15,9 +15,9 @@ public class DonarDaoSQL2o implements IDonacionDao {
     }
 
     @Override
-    public void guardarDonacion(DonarPlastico donacion){
-        String sql = "INSERT INTO donacion (Usuario_DNI, Plastico_idPlastico, Cant_plastico, Unidad, buscar, fechaHoraDisp) " +
-                    "VALUES (:Usuario_DNI, :Plastico_idPlastico, :Cant_plastico, :Unidad, :buscar, :fechaHoraDisp)";
+    public DonarPlastico guardarDonacion(DonarPlastico donacion){
+        String sql = "INSERT INTO donacion (Usuario_DNI, Plastico_idPlastico, Cant_plastico, Unidad, buscar, fechaHoraDisp, Descripcion, Direccion) " +
+                    "VALUES (:Usuario_DNI, :Plastico_idPlastico, :Cant_plastico, :Unidad, :buscar, :fechaHoraDisp, :Descripcion, :Direccion)";
 
         try (Connection con = sql2o.open()){
             
@@ -28,7 +28,9 @@ public class DonarDaoSQL2o implements IDonacionDao {
                 .addParameter("Cant_plastico", donacion.getCantidadADonar())
                 .addParameter("Unidad", donacion.getUnidad())
                 .addParameter("buscar", donacion.getBuscar())
-                .addParameter("fechaHoraDisp", donacion.getFechaHoraDisp ())
+                .addParameter("fechaHoraDisp", donacion.getFechaHoraDisp())
+                .addParameter("Descripcion", donacion.getDescripcion())
+                .addParameter("Direccion", donacion.getDireccion())
                 .executeUpdate()
                 .getKey();
             
@@ -42,5 +44,7 @@ public class DonarDaoSQL2o implements IDonacionDao {
             e.printStackTrace();
             throw new RuntimeException("No se pudo guardar la donación", e);
         }
+
+        return donacion;
     }
 }

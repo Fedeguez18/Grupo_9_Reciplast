@@ -23,13 +23,13 @@ public class DonarController {
     //@ResponseStatus(HttpStatus.CREATED)
     public Map<String, Object> guardarDonacion(@RequestBody DonarPlastico donacion){
         
-        donarService.guardarDonacion(donacion);
+        DonarPlastico guardado= donarService.guardarDonacion(donacion);
         
         Map<String, Object> response = new HashMap<>();
         response.put("mensaje", "Donación guardada exitosamente");
-        response.put("idDonacion", donacion.getIdDonacion());
-        response.put("idUsuario", donacion.getIdUsuario());
-        response.put("cantidad", donacion.getCantidadADonar() + " " + donacion.getUnidad());
+        response.put("idDonacion", guardado.getIdDonacion());
+        response.put("idUsuario", guardado.getIdUsuario());
+        response.put("cantidad", guardado.getCantidadADonar() + " " + guardado.getUnidad());
         
         return response;
     }
@@ -41,7 +41,9 @@ public class DonarController {
   "idUsuario": 1,
   "idPlastico": 10,
   "cantidadADonar": 10,
-  "fechaHoraDisp": 2025-10-03,
+  "fechaHoraDisp": "2025-10-03",
+  "descipcion": "botellas de gaceosas",
+  "direccion": "calle 13 y 120",
   "buscar": 1,
   "unidad": "kg"
 }

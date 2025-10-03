@@ -14,7 +14,8 @@ public class DonarService {
         this.donarSql2o = donarSql2o;
     }
 
-    public void guardarDonacion(DonarPlastico donacion){
-        donarSql2o.guardarDonacion(donacion);
+    public DonarPlastico guardarDonacion(DonarPlastico donacion){
+       return  donarSql2o.guardarDonacion(donacion);
+        
     }
 }
