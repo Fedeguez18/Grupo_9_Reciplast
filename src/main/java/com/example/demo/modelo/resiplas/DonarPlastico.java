@@ -9,6 +9,8 @@ public class DonarPlastico {
     private int idUsuario;
     private int cantidadADonar;
     private Date fechaHoraDisp;
+    private String descripcion;
+    private String direccion;
     private boolean buscar;
     private int idPlastico;
     private String unidad;
@@ -50,6 +52,22 @@ public class DonarPlastico {
 
     public void setBuscar(boolean buscar){
         this.buscar = buscar;
+    }
+
+    public String getDescripcion(){
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion){
+        this.descripcion = descripcion;
+    }
+
+    public String getDireccion(){
+        return direccion;
+    }
+
+    public void setDireccion (String direccion){
+        this.direccion = direccion;
     }
 
 }
