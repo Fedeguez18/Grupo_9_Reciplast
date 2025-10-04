@@ -18,7 +18,7 @@ public class Beneficio {
     }
 
     
-    public Beneficio(int id, String Nombre_benef, String tipo, String categoria, 
+    /*public Beneficio(int id, String Nombre_benef, String tipo, String categoria, 
                     int puntosReq, Date fechaVigencia, boolean activo, String descripcion) {
         this.idBeneficio = id;
         this.Nombre_benef = Nombre_benef;
@@ -28,7 +28,7 @@ public class Beneficio {
         this.Fecha_vigencia = fechaVigencia;
         this.Activo = activo;
         this.Descripcion = descripcion;
-    }
+    }*/
 
     // Getters y Setters (AGREGAR SETTERS también)
     public int getIdBeneficio() { return idBeneficio; }
