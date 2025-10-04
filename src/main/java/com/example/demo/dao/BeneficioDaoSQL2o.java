@@ -15,7 +15,7 @@ public class BeneficioDaoSQL2o implements IBeneficioDao {
 
     public BeneficioDaoSQL2o(Sql2o sql2o) {
         this.sql2o = sql2o;
-    }
+    } 
 
     @Override
     public List<Beneficio> consultarBeneficios(int puntos) {
