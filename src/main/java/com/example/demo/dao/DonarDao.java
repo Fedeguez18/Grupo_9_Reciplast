@@ -6,11 +6,11 @@ import org.sql2o.Sql2o;
 import com.example.demo.modelo.resiplas.DonarPlastico;
 
 @Repository
-public class DonarDaoSQL2o implements IDonacionDao {
+public class DonarDao implements IDonacionDao {
     
     private final Sql2o sql2o;
 
-    public DonarDaoSQL2o(Sql2o sql2o){
+    public DonarDao(Sql2o sql2o){
         this.sql2o = sql2o;
     }
 

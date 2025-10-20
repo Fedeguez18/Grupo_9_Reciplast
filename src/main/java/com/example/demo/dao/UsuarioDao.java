@@ -4,11 +4,11 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 @Repository
-public class UsuarioDaoSQL2o implements IUsuarioDao {
+public class UsuarioDao implements IUsuarioDao {
     private final Sql2o sql2o;
 
     
-    public UsuarioDaoSQL2o(Sql2o sql2o) {
+    public UsuarioDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     }
 

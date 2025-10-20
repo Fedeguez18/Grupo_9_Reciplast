@@ -2,15 +2,15 @@ package com.example.demo.servicio.reciplas;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.DonarDaoSQL2o;
+import com.example.demo.dao.DonarDao;
 import com.example.demo.modelo.resiplas.DonarPlastico;
 
 @Service
 public class DonarService {
     
-    private final DonarDaoSQL2o donarSql2o;
+    private final DonarDao donarSql2o;
 
-    public DonarService(DonarDaoSQL2o donarSql2o){
+    public DonarService(DonarDao donarSql2o){
         this.donarSql2o = donarSql2o;
     }
 

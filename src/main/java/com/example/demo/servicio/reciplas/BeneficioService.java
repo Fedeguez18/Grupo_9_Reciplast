@@ -4,16 +4,16 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.BeneficioDaoSQL2o;
-import com.example.demo.dao.UsuarioDaoSQL2o;
+import com.example.demo.dao.BeneficioDao;
+import com.example.demo.dao.UsuarioDao;
 import com.example.demo.modelo.resiplas.Beneficio;
 
 @Service
 public class BeneficioService {
-    private final UsuarioDaoSQL2o userDaoSQL;
-    private final BeneficioDaoSQL2o beneDaoSQL;
+    private final UsuarioDao userDaoSQL;
+    private final BeneficioDao beneDaoSQL;
 
-    public BeneficioService(UsuarioDaoSQL2o userDao, BeneficioDaoSQL2o beneDao) {
+    public BeneficioService(UsuarioDao userDao, BeneficioDao beneDao) {
         this.userDaoSQL = userDao;
         this.beneDaoSQL = beneDao;
     }

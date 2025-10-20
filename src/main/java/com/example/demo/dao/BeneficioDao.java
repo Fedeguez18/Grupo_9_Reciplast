@@ -10,10 +10,10 @@ import org.sql2o.Sql2o;
 import com.example.demo.modelo.resiplas.Beneficio;
 
 @Repository
-public class BeneficioDaoSQL2o implements IBeneficioDao {
+public class BeneficioDao implements IBeneficioDao {
     private final Sql2o sql2o;
 
-    public BeneficioDaoSQL2o(Sql2o sql2o) {
+    public BeneficioDao(Sql2o sql2o) {
         this.sql2o = sql2o;
     } 
 
