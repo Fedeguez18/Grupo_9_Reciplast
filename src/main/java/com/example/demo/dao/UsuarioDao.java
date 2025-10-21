@@ -28,5 +28,17 @@ public class UsuarioDao implements IUsuarioDao {
             return 0;
         }
     }
+
+    public void actualizarPuntos(int DNI, int cantPuntos){
+        String sql = "UPDATE Usuario SET Cant_ptos =  Cant_ptos + :cantPuntos WHERE DNI= :DNI";
+
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+            .addParameter("DNI", DNI)
+            .addParameter("cantPuntos", cantPuntos);
+            
+        }
+
+    }
 }
 
