@@ -1,4 +1,6 @@
 package com.example.demo.dao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -6,7 +8,7 @@ import org.sql2o.Sql2o;
 @Repository
 public class UsuarioDao implements IUsuarioDao {
     private final Sql2o sql2o;
-
+    private static final Logger logger = LoggerFactory.getLogger(CodigoDao.class);
     
     public UsuarioDao(Sql2o sql2o) {
         this.sql2o = sql2o;
@@ -29,14 +31,18 @@ public class UsuarioDao implements IUsuarioDao {
         }
     }
 
-    public void actualizarPuntos(int DNI, int cantPuntos){
-        String sql = "UPDATE Usuario SET Cant_ptos =  Cant_ptos + :cantPuntos WHERE DNI= :DNI";
+    public void actualizarPuntos(int cantPuntos, int DNI){
+        String sql = "UPDATE usuario SET Cant_ptos =  Cant_ptos + :cantPuntos WHERE DNI= :DNI";
 
         try (Connection con = sql2o.open()){
             con.createQuery(sql)
             .addParameter("DNI", DNI)
-            .addParameter("cantPuntos", cantPuntos);
+            .addParameter("cantPuntos", cantPuntos)
+            .executeUpdate();
+            logger.info("actualizacion correcta en DNI: {} y los puntos: {}", DNI, cantPuntos);
             
+        }catch(Exception e){
+            logger.error("errorrrrrrrr",e);
         }
 
     }

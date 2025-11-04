@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.demo.dao.cuDonar;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -41,7 +41,7 @@ public class DonarDao implements IDonacionDao {
             
         } catch (Exception e) {
             System.err.println("Error al guardar donación: " + e.getMessage());
-            e.printStackTrace();
+            
             throw new RuntimeException("No se pudo guardar la donación", e);
         }
 

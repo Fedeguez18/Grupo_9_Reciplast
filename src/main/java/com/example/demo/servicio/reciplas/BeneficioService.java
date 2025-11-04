@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.BeneficioDao;
 import com.example.demo.dao.UsuarioDao;
+import com.example.demo.dao.cuBeneficio.BeneficioDao;
 import com.example.demo.modelo.resiplas.Beneficio;
 
 @Service

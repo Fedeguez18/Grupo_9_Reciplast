@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.demo.dao.cuDonar;
 
 import com.example.demo.modelo.resiplas.DonarPlastico;
 
