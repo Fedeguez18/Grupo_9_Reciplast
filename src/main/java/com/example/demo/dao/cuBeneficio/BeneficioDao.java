@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.demo.dao.cuBeneficio;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +35,7 @@ public class BeneficioDao implements IBeneficioDao {
             return resultados;
         } catch (Exception e) {
             System.err.println("Error al consultar beneficios: " + e.getMessage());
-            e.printStackTrace();
+            
             return new ArrayList<>();
         }
     }

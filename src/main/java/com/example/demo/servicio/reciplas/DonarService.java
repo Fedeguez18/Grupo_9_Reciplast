@@ -2,7 +2,7 @@ package com.example.demo.servicio.reciplas;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.DonarDao;
+import com.example.demo.dao.cuDonar.DonarDao;
 import com.example.demo.modelo.resiplas.DonarPlastico;
 
 @Service
