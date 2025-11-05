@@ -12,6 +12,7 @@ public class Beneficio {
     private Date Fecha_vigencia;
     private boolean Activo;
     private String Descripcion;
+    private int stock;
 
     
     public Beneficio() {
