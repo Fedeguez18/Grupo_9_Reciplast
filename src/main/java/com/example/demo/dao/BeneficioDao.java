@@ -67,34 +67,8 @@ public class BeneficioDao implements IBeneficioDao {
             return 0;
         }
     }
-    //no sirve
+
     @Override
-    public boolean actualizarActivo(int idBeneficio, boolean activo) {
-    String sql = "UPDATE Beneficio SET Activo = :activo WHERE idBeneficio = :idBeneficio";
-
-    try (Connection con = sql2o.open()) {
-        logger.debug("Actualizando estado 'Activo' de beneficio id={} a {}", idBeneficio, activo);
-
-        int filasAfectadas = con.createQuery(sql)
-                .addParameter("activo", activo)
-                .addParameter("idBeneficio", idBeneficio)
-                .executeUpdate()
-                .getResult();
-
-        boolean actualizado = filasAfectadas > 0;
-            if (actualizado) {
-                logger.info("Estado del beneficio {} actualizado correctamente a {}", idBeneficio, activo);
-            } else {
-                logger.warn("No se encontró beneficio con id={} para actualizar", idBeneficio);
-            }
-
-            return actualizado; // true si se actualizó correctamente
-    } catch (Exception e) {
-        logger.error("Error al actualizar el estado del beneficio con id {}: {}", idBeneficio, e.getMessage(), e);
-        return false;
-    }
-}
-
     public int getStock(int idBeneficio) {
     String sql = "SELECT stock FROM Beneficio WHERE idBeneficio = :idBeneficio";
     try(Connection con = sql2o.open()) {
@@ -113,7 +87,7 @@ public class BeneficioDao implements IBeneficioDao {
             return 0;
         }
 }
-
+    @Override
     public void actualizarStock(int idBeneficio, int nuevoStock) {
     String sql = "UPDATE Beneficio SET stock = :nuevoStock WHERE idBeneficio = :idBeneficio";
     try (Connection con = sql2o.open()) {

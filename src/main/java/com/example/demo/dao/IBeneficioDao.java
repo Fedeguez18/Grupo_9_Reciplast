@@ -8,6 +8,7 @@ public interface IBeneficioDao {
     
     public List<Beneficio> consultarBeneficios(int puntos);
     public int getPuntosBeneficio(int idBeneficio);
-    public boolean actualizarActivo(int idBeneficio, boolean activo);
+    public int getStock(int idBeneficio);
+    public void actualizarStock(int idBeneficio, int nuevoStock);
 
 }
