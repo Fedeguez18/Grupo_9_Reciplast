@@ -9,7 +9,7 @@ import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
 import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 import com.example.demo.modelo.resiplas.Beneficio;
 
