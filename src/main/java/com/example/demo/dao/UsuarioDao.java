@@ -4,8 +4,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+
 
 @Repository
 public class UsuarioDao implements IUsuarioDao {
@@ -22,7 +21,7 @@ public class UsuarioDao implements IUsuarioDao {
     
     @Override
     public int consultarPuntos(int idUser) {
-        String sql = "SELECT puntos FROM Usuario WHERE id = :id";
+        String sql = "SELECT Cant_ptos FROM usuario WHERE DNI = :id";
 
         try (Connection con = sql2o.open()) {
             logger.debug("Consultando puntos del usuario con id={}", idUser);
@@ -41,7 +40,7 @@ public class UsuarioDao implements IUsuarioDao {
     }
 
     public void actualizarPuntos(int cantPuntos, int DNI){
-        String sql = "UPDATE usuario SET Cant_ptos =  Cant_ptos + :cantPuntos WHERE DNI= :DNI";
+        String sql = "UPDATE usuario SET Cant_ptos = :cantPuntos WHERE DNI= :DNI";
 
         try (Connection con = sql2o.open()){
             con.createQuery(sql)

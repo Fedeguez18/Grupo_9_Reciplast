@@ -1,8 +1,6 @@
 package com.example.demo.controladores.reciplas;
 
 import org.springframework.web.bind.annotation.*;
-//import java.util.HashMap;
-//import java.util.Map;
 import com.example.demo.servicio.reciplas.CanjearService;
 import com.example.demo.modelo.resiplas.Canjear;
 
@@ -18,8 +16,10 @@ public class CanjearController {
     @GetMapping("/canjear/{idUser}/{idBeneficio}")
     public Canjear canjearPuntos(@PathVariable int idUser, @PathVariable int idBeneficio){
         Canjear canje = canjearService.canjearPuntos(idUser, idBeneficio);
+        
         return canje;
     }
 }
 
 
+//Consulta: http://localhost:8081/canjear/2/3
