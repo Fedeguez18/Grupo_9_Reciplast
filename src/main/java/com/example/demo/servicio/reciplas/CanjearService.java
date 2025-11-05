@@ -32,6 +32,7 @@ public class CanjearService {
         if (canjearDao.existeCanje(idUser, idBeneficio)) {
             logger.warn("El usuario {} ya canjeó el beneficio {}", idUser, idBeneficio);
             throw new RuntimeException("Este beneficio ya fue canjeado anteriormente.");
+            
         }
 
         // 2. Consultar puntos del usuario y del beneficio
@@ -55,7 +56,9 @@ public class CanjearService {
         // Restar puntos al usuario 
         int puntosRestantes = puntosUser - puntosBeneficio;
 
-        usuarioDao.actualizarPuntos(idUser, puntosRestantes);
+
+
+        usuarioDao.actualizarPuntos(puntosRestantes, idUser);
         beneficioDao.actualizarStock(idBeneficio, stock - 1);
 
         // Registrar el canje
