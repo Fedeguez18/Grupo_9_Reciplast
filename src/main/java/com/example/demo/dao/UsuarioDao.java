@@ -1,4 +1,6 @@
 package com.example.demo.dao;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -11,7 +13,7 @@ public class UsuarioDao implements IUsuarioDao {
     private static final Logger logger = LoggerFactory.getLogger(UsuarioDao.class);
 
     private final Sql2o sql2o;
-
+    
     
     public UsuarioDao(Sql2o sql2o) {
         this.sql2o = sql2o;
@@ -38,20 +40,22 @@ public class UsuarioDao implements IUsuarioDao {
         }
     }
 
-    public void actualizarPuntos(int idUser, int nuevosPuntos) {
-    String sql = "UPDATE Usuario SET puntos = :puntos WHERE id = :id";
-    try (Connection con = sql2o.open()) {
-        
-        logger.debug("Actualizando puntos del usuario id={} a {}", idUser, nuevosPuntos);
+    public void actualizarPuntos(int cantPuntos, int DNI){
+        String sql = "UPDATE usuario SET Cant_ptos =  Cant_ptos + :cantPuntos WHERE DNI= :DNI";
 
-        con.createQuery(sql)
-            .addParameter("puntos", nuevosPuntos)
-            .addParameter("id", idUser)
+        try (Connection con = sql2o.open()){
+            con.createQuery(sql)
+            .addParameter("DNI", DNI)
+            .addParameter("cantPuntos", cantPuntos)
             .executeUpdate();
-    } catch (Exception e) {
-        logger.error("Error al actualizar puntos del usuario con id {}: {}", idUser, e.getMessage(), e);
+            logger.info("actualizacion correcta en DNI: {} y los puntos: {}", DNI, cantPuntos);
+            
+        }catch(Exception e){
+            logger.error("Error al actualizar puntos del usuario con id {}: {}", DNI, e.getMessage(), e);
+        }
+
+       
     }
-}
 }
 
 

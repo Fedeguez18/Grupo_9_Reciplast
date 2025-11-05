@@ -2,9 +2,11 @@ package com.example.demo.dao;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
+@Repository
 public class PlasticoDao implements IPlasticoDao {
     private final Sql2o sql2o;
     private static final Logger logger = LoggerFactory.getLogger(CodigoDao.class);
@@ -14,7 +16,7 @@ public class PlasticoDao implements IPlasticoDao {
     }
     
     @Override
-    public int consultarPlastico(int idPlastico) {
+    public int consultarPuntosPlastico(int idPlastico) {
        String sql = "SELECT cantPuntos FROM plastico WHERE idPlastico = :idPlastico";
 
        try(Connection con =  sql2o.open()){
@@ -23,13 +25,14 @@ public class PlasticoDao implements IPlasticoDao {
                 .executeScalar(Integer.class);
 
             if (puntos == null) {
+                logger.info("El Id:{} no existe:",idPlastico);
                 return 0;
             }
-            logger.info("los puntos obtenidos son: ", puntos, "de", idPlastico);
+            logger.info("los puntos obtenidos son: {} del ID {}", puntos, idPlastico);
             return puntos;
        }catch(Exception e){
-            System.err.println("Error al consultar puntos del plástico: " + e.getMessage());
-            return 0;
+            logger.error("Error al consultar puntos del plástico: {} ", e.getMessage());
+            return -1;
        }
     }
 }

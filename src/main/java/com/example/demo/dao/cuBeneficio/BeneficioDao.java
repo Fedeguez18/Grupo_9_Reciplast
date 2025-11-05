@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.demo.dao.cuBeneficio;
 
 import java.util.ArrayList;
 import java.util.List;
