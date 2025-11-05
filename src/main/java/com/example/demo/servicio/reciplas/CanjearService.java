@@ -2,7 +2,7 @@ package com.example.demo.servicio.reciplas;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.dao.BeneficioDao;
+import com.example.demo.dao.cuBeneficio.BeneficioDao;
 import com.example.demo.dao.CanjearDao;
 import com.example.demo.dao.UsuarioDao;
 import com.example.demo.modelo.resiplas.Canjear;
