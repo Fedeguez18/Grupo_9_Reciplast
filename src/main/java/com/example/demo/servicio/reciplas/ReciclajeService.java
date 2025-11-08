@@ -23,7 +23,7 @@ public class ReciclajeService {
         int puntosTotales= puntosService.generarPuntos(recList);
         
 
-        if(puntosTotales == 0){
+        if(puntosTotales <= 0){
             return "El plastico no existe ";
         }
 

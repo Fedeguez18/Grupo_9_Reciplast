@@ -49,7 +49,7 @@ public  class CodigoDao extends GenericDao<Codigo> implements ICodigoDao {
 
     public int getPuntosCodigo(int codigo){
         
-        Integer puntos= null;
+        Integer puntos;
         String sql = "SELECT cantPuntos From codigo WHERE unicoCodigo = :unicoCodigo AND libre=true AND usado= false";
         try( Connection con = sql2o.open()){
             puntos = con.createQuery(sql)
@@ -65,6 +65,7 @@ public  class CodigoDao extends GenericDao<Codigo> implements ICodigoDao {
 
 
     }
+    
     
     // esto toma los codigos de la api y los guarda
     @Override

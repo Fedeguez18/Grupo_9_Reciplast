@@ -14,6 +14,7 @@ public class GenericDao <Entidad> {
     protected final Sql2o sql2o; 
     private final Class<Entidad> tipo;
     private final String tabla;
+    
     private static final Logger logger = LoggerFactory.getLogger(GenericDao.class);
 
     public GenericDao(Sql2o sql2o, Class<Entidad> tipo){

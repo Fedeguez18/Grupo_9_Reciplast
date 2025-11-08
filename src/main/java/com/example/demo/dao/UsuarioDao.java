@@ -30,12 +30,12 @@ public class UsuarioDao implements IUsuarioDao {
                     .addParameter("id", idUser)
                     .executeScalar(Integer.class);
 
-            int valor = puntos != null ? puntos : 0;
+            int valor = puntos != null ? puntos : 0; 
             logger.info("Usuario {} tiene actualmente {} puntos", idUser, valor);
             return valor;
         } catch (Exception e) {
             logger.error("Error al consultar puntos del usuario con id {}: {}", idUser, e.getMessage(), e);
-            return 0;
+            return 0; 
         }
     }
 

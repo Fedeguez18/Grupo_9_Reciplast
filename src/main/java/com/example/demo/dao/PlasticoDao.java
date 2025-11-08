@@ -27,7 +27,7 @@ public class PlasticoDao implements IPlasticoDao {
             if (puntos == null) {
                 logger.info("El Id:{} no existe:",idPlastico);
                 return 0;
-            }
+            }//borrar
             logger.info("los puntos obtenidos son: {} del ID {}", puntos, idPlastico);
             return puntos;
        }catch(Exception e){
