@@ -1,8 +1,11 @@
 package com.example.demo.controladores.reciplas;
 
-import org.springframework.web.bind.annotation.*;
-import com.example.demo.servicio.reciplas.CanjearService;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+
 import com.example.demo.modelo.resiplas.Canjear;
+import com.example.demo.servicio.reciplas.CanjearService;
 
 @RestController
 public class CanjearController {
@@ -13,7 +16,7 @@ public class CanjearController {
         this.canjearService = canjearService;
     }
 
-    @GetMapping("/canjear/{idUser}/{idBeneficio}")
+    @PostMapping("/canjear/{idUser}/{idBeneficio}")
     public Canjear canjearPuntos(@PathVariable int idUser, @PathVariable int idBeneficio){
         Canjear canje = canjearService.canjearPuntos(idUser, idBeneficio);
         
@@ -22,4 +25,4 @@ public class CanjearController {
 }
 
 
-//Consulta: http://localhost:8081/canjear/2/3
+//Consulta: http://localhost:8081/canjear/3/100

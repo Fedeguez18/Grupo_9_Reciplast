@@ -26,3 +26,13 @@ public class DejarPlasticoController {
 
     }
 }
+
+//http://localhost:8081/dejarPlastico
+
+/*
+ [
+    {"idPlastico": 10 , "kg": 10},
+    {"idPlastico":11, "kg":100},
+    {"idPlastico":12, "kg":1}
+]
+ */

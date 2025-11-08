@@ -38,11 +38,12 @@ public class CodigoService {
     }
 
     public int ingresarCodigo(int codigo, int idUsuario){
-        int puntosObtenidos=0;
+        int puntosObtenidos;
         int puntosCodigo=0;
         if(codigoDao.verificarCodigo(codigo)){
+            
             puntosCodigo= codigoDao.getPuntosCodigo(codigo);
-            puntosObtenidos= puntosCodigo+ usuarioDao.consultarPuntos(idUsuario);
+            puntosObtenidos= puntosCodigo + usuarioDao.consultarPuntos(idUsuario);
             logger.info("los puntos que se van agregar son: {}", puntosObtenidos);
             codigoDao.actualizarEstadoCodigo(codigo);
             

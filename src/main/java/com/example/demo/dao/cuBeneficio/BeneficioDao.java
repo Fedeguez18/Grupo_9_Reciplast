@@ -3,13 +3,11 @@ package com.example.demo.dao.cuBeneficio;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
-
-import org.slf4j.Logger;
-
 
 import com.example.demo.modelo.resiplas.Beneficio;
 
@@ -70,7 +68,7 @@ public class BeneficioDao implements IBeneficioDao {
 
     @Override
     public int getStock(int idBeneficio) {
-    String sql = "SELECT stock FROM Beneficio WHERE idBeneficio = :idBeneficio";
+    String sql = "SELECT stock FROM beneficio WHERE idBeneficio = :idBeneficio";
     try(Connection con = sql2o.open()) {
         logger.debug("Consultando stock del beneficio id={}", idBeneficio);
 
@@ -93,17 +91,13 @@ public class BeneficioDao implements IBeneficioDao {
     try (Connection con = sql2o.open()) {
         logger.debug("Actualizando stock de beneficio id={} a {}", idBeneficio, nuevoStock);
 
-        int filas = con.createQuery(sql)
+        con.createQuery(sql)
                     .addParameter("nuevoStock", nuevoStock)
                     .addParameter("idBeneficio", idBeneficio)
-                    .executeUpdate()
-                    .getResult();
+                    .executeUpdate();
+                    
 
-            if (filas > 0) {
-                logger.info("Stock actualizado correctamente para beneficio id={} (nuevo stock: {})", idBeneficio, nuevoStock);
-            } else {
-                logger.warn("No se encontró beneficio con id={} para actualizar el stock", idBeneficio);
-            }
+           
          
     } catch (Exception e) {
         logger.error("Error al actualizar el stock del beneficio con id {}: {}", idBeneficio, e.getMessage(), e);

@@ -1,14 +1,13 @@
 package com.example.demo.servicio.reciplas;
 
-import org.springframework.stereotype.Service;
-
-import com.example.demo.dao.cuBeneficio.BeneficioDao;
-import com.example.demo.dao.CanjearDao;
-import com.example.demo.dao.UsuarioDao;
-import com.example.demo.modelo.resiplas.Canjear;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.dao.CanjearDao;
+import com.example.demo.dao.UsuarioDao;
+import com.example.demo.dao.cuBeneficio.BeneficioDao;
+import com.example.demo.modelo.resiplas.Canjear;
 
 @Service
 public class CanjearService {
@@ -28,14 +27,14 @@ public class CanjearService {
     public Canjear canjearPuntos(int idUser, int idBeneficio) {
         logger.debug("Iniciando proceso de canje: user={}, beneficio={}", idUser, idBeneficio);
 
-        // 1. Verificar si ya fue canjeado
+        //  Verifica si ya fue canjeado
         if (canjearDao.existeCanje(idUser, idBeneficio)) {
             logger.warn("El usuario {} ya canjeó el beneficio {}", idUser, idBeneficio);
             throw new RuntimeException("Este beneficio ya fue canjeado anteriormente.");
             
         }
 
-        // 2. Consultar puntos del usuario y del beneficio
+        // Consulta puntos del usuario y del beneficio
         int puntosUser = usuarioDao.consultarPuntos(idUser);
         int puntosBeneficio = beneficioDao.getPuntosBeneficio(idBeneficio);
         int stock = beneficioDao.getStock(idBeneficio);
@@ -56,8 +55,6 @@ public class CanjearService {
         // Restar puntos al usuario 
         int puntosRestantes = puntosUser - puntosBeneficio;
 
-
-
         usuarioDao.actualizarPuntos(puntosRestantes, idUser);
         beneficioDao.actualizarStock(idBeneficio, stock - 1);
 
@@ -66,11 +63,6 @@ public class CanjearService {
 
         logger.info("Canje registrado con éxito para usuario {} y beneficio {}", idUser, idBeneficio);
         
-        // Actualizar estado del beneficio (si lo aplicó un determinado usuario)
-        //beneficioDao.actualizarActivo(idBeneficio, false);
-
-
-
         return canje;
     }
 }
@@ -89,12 +81,12 @@ public class CanjearService {
 
     public String canjearPuntos(int idUser, int idBeneficio) {
         try {
-            // 1. Verificar si ya fue canjeado
+            // Verificar si ya fue canjeado
             if (canjearDao.existeCanje(idUser, idBeneficio)) {
                 return "Este beneficio ya fue canjeado anteriormente.";
             }
 
-            // 2. Consultar puntos del usuario y del beneficio
+            //  Consultar puntos del usuario y del beneficio
             int puntosUsuario = usuarioDao.consultarPuntos(idUser);
             int puntosBeneficio = beneficioDao.getPuntosBeneficio(idBeneficio);
 
@@ -102,12 +94,12 @@ public class CanjearService {
                 return "Los puntos son insuficientes. Recolecta más para alcanzar el beneficio.";
             }
 
-            // 3. Restar puntos y registrar canje
+            //  Restar puntos y registrar canje
             int nuevosPuntos = puntosUsuario - puntosBeneficio;
             usuarioDao.actualizarPuntos(idUser, nuevosPuntos);
             canjearDao.registrarCanje(idUser, idBeneficio);
 
-            // 4. Desactivar beneficio (si aplica)
+            //  Desactivar beneficio (si aplica)
             beneficioDao.actualizarActivo(idBeneficio, false);
 
             return "¡Canje exitoso! El beneficio ya puede ser usado.";

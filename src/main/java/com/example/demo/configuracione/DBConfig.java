@@ -12,7 +12,7 @@ public class DBConfig {
     public Sql2o sql2o() {
         if(sql2o == null){
             sql2o= new Sql2o(
-            "jdbc:mysql://localhost:3306/reciplast?useSSL=false&serverTimezone=UTC",
+            "jdbc:mysql://localhost:3306/reciplas?useSSL=false&serverTimezone=UTC",
             "root",
             ""
         );

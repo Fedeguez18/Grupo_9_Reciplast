@@ -1,14 +1,14 @@
 package com.example.demo.dao;
 
-import org.sql2o.Connection;
-import org.sql2o.Sql2o;
-import org.springframework.stereotype.Repository;
-import com.example.demo.modelo.resiplas.Canjear;
-
 import java.time.LocalDate;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Repository;
+import org.sql2o.Connection;
+import org.sql2o.Sql2o;
+
+import com.example.demo.modelo.resiplas.Canjear;
 
 @Repository
 public class CanjearDao {
@@ -34,7 +34,7 @@ public class CanjearDao {
             Number key = (Number) con.createQuery(sql, true)
                 .addParameter("idUser", idUser)
                 .addParameter("idBeneficio", idBeneficio)
-                .addParameter("fechaCanje", canjear.getFechaCanje())
+                .addParameter("fechaCanje", LocalDate.now())
                 .executeUpdate()
                 .getKey();
 
@@ -64,7 +64,7 @@ public class CanjearDao {
 
         } catch (Exception e) {
             logger.error("Error al verificar canje: {}", e.getMessage(), e);
-            return false;
+            throw new RuntimeException("Error al verificar el canje", e);
         }
     }
     }
